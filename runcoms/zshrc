@@ -5,6 +5,20 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #   Christian Nikkanen <hi@kisu.li>
 #
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+export PATH="$PATH:/usr/local/bin/"
+export PATH="/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+export PATH="$PATH:$HOME/.composer/vendor/bin"
+export PATH="$PATH:$HOME/.yarn/bin"
+export PATH="$PATH:$HOME/.npm-global/bin"
+
+export EDITOR=/usr/bin/vim
+export BLOCKSIZE=1k
+
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
 
 DEFAULT_USER=christian
 
@@ -17,3 +31,8 @@ fi
 
 eval "$(scmpuff init -s)"
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+function all_polylang_prints() {
+  grep -I -E -o "pll_e\((.*)\)" -r . | sed -e 's,.*pll_e(\([^<]*\)).*,\1,g' | sort | uniq
+  grep -I -E -o "pll__\((.*)\)" -r . | sed -e 's,.*pll__(\([^<]*\)).*,\1,g' | sort | uniq
+}
