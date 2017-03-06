@@ -15,12 +15,15 @@ export PATH="$PATH:$HOME/.yarn/bin"
 export PATH="$PATH:$HOME/.npm-global/bin"
 
 export EDITOR=/usr/bin/vim
+export VISUAL=/usr/bin/vim # wtf, why was the default nano?
 export BLOCKSIZE=1k
 
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
 DEFAULT_USER=christian
+
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/ffmpeg/lib/pkgconfig/
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
