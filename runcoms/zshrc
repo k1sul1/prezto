@@ -15,6 +15,10 @@ export PATH="$PATH:$HOME/.yarn/bin"
 export PATH="$PATH:$HOME/.npm-global/bin"
 export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
 
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=~/Projects/golang
+export PATH=$PATH:$(go env GOPATH)/bin
+
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim # wtf, why was the default nano?
 export BLOCKSIZE=1k
@@ -22,7 +26,7 @@ export BLOCKSIZE=1k
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
-DEFAULT_USER=k1sul1
+export DEFAULT_USER=k1sul1
 
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/ffmpeg/lib/pkgconfig/
 
@@ -42,12 +46,12 @@ function all_polylang_prints() {
   grep -I -E -o "pll__\((.*)\)" -r . | sed -e 's,.*pll__(\([^<]*\)).*,\1,g' | sort | uniq
 }
 
-alias gc='git commit'
+alias gc='git commit -n'
 
 git () {
   for arg
   do
-    if [[ $arg == -a* || $arg == -[^-]*a* ]]
+    if [[ $arg == commit* && $arg == -a* || $arg == -[^-]*a* ]]
     then
       stop_using_that_flag
       return 1
@@ -84,3 +88,4 @@ wp() {
 phpcheck(){
     find ./ -iname "*.php" -exec php -l {} \; | grep -i "Errors.parsing"
 }
+export PATH="/Users/k1sul1/bin/Sencha/Cmd:$PATH"
