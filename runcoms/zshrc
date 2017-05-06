@@ -49,6 +49,7 @@ function all_polylang_prints() {
 
 alias gc='git commit -n'
 alias ssh="TERM=xterm-256color ssh" # Prevent remotes from panicking when they see me connect (handle italics)
+alias vim="nvim"
 
 git () {
   for arg
