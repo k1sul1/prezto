@@ -49,6 +49,8 @@ function all_polylang_prints() {
 
 alias gc='git commit -n'
 alias ssh="TERM=xterm-256color ssh" # Prevent remotes from panicking when they see me connect (handle italics)
+alias screen="TERM=xterm-256color screen" # Same thing
+# If you're going to do this a _lot_, you might just as well just set special $TERM for Vim
 alias vim="nvim"
 
 git () {
@@ -56,8 +58,8 @@ git () {
   do
     if [[ $arg == commit* && $arg == -a* || $arg == -[^-]*a* ]]
     then
-      stop_using_that_flag
-      return 1
+      # stop_using_that_flag
+      # return 1
     fi
   done
 	case $1 in
